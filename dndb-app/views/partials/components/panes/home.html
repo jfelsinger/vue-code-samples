@@ -1,0 +1,69 @@
+<template id="vue-tmpl__pane-home">
+
+<header class="site-header"
+       :class="{ isLoading:isLoading }">
+    <form @submit.prevent="fetchData"
+        class="main-search__form">
+
+        <div class="main-search__loader"
+            :class="{ isLoading:isLoading }"></div>
+
+        <div class="main-search__search-wrapper  float-left">
+            <input
+                @keydown="detect"
+                class="main-search__search"
+                v-model="pagination.q"
+                placeholder="search...">
+            <a @click.stop.prevent="detect" class="main-search__search-button  ico-button  icon--search" href="javascript:void(0);"></a>
+        </div><!-- main-search__search-wrapper -->
+
+        <x-pager
+            :pagination.sync="pagination"
+            :max.sync="max"></x-pager>
+    </form>
+
+    <section class="main-search__category-selector">
+        <label v-for="cat in filtering.categories"
+            :data-category="cat.slug"
+            class="\{{cat.slug}}">
+            <input type="checkbox" 
+                @click="detect" 
+                v-model="cat.active" 
+                class="\{{cat.slug}}">
+            <span v-text="cat.name"></span>
+        </label>
+    </section>
+</header>
+
+<ul class="entry-list">
+    <li v-for="entry in entries"
+        class="entry-list__item  \{{ entry.category_slug }}"
+        :data-id="entry._id">
+        <input type="checkbox" class="entry-list__toggle">
+        <div class="entry-list__header">
+            <h3 class="entry-list__header__name" v-text="entry.name"></h3>
+            <small class="entry-list__header__category">\{{ entry.category }}</small>
+
+            <p class="entry-list__header__blurb">
+                \{{ entry.body_str }}
+            </p>
+        </div><!-- entry-list__header -->
+
+        <div class="entry-list__details">
+            <div class="entry-list__details__container">
+
+                <a href="/single/\{{entry._id}}/\{{entry.name}}" 
+                    v-text="entry.name"
+                    class="icon--link  float-right"></a>
+
+                <div class="entry-list__details__html"
+                     v-html="entry.body_highlight || entry.body_html">
+                </div><!-- entry-list__details__html -->
+
+            </div><!-- entry-list__details__container -->
+        </div><!-- entry-list__details -->
+    </li>
+</ul>
+
+
+</template>

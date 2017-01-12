@@ -1,0 +1,26 @@
+<form @submit.prevent="updatePlan">
+    <div class="plan-container  plan-container--free">
+        <p>Free Plan</p>
+    </div>
+
+    <div class="plan-container  plan-container--basic">
+        <p>Basic Plan</p>
+    </div>
+
+    <div class="plan-container  plan-container--pro">
+        <p>Pro Plan</p>
+    </div>
+
+    <p>Plan: \{{auth.plan}}</p>
+
+    <p>Choose Plan:</p>
+    <select v-model="form.plan">
+        <option value="free">Free</option>
+        <option value="basic">Basic</option>
+        <option value="pro">Pro</option>
+    </select>
+
+    <div>
+        <button>Submit</button>
+    </div>
+</form>

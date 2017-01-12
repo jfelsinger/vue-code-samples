@@ -1,0 +1,10 @@
+<!-- Stripe Integration -->
+<script src="https://js.stripe.com/v2/"></script>
+<script>
+    Stripe.setPublishableKey('{{ stripePublicKey }}');
+</script>
+
+<!--Application JavaScript Files-->
+{{#each page.scripts }}
+    <script src="/assets/js/{{this}}.js?#{{ver}}"></script>{{/each}}
+    <script src="{{ base }}/assets/js/{{default pageScript 'main'}}.js?#{{ver}}"></script>

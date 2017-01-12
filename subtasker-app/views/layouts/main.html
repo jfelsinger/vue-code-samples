@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+{{> head }}
+    <!--
+        cool comments and stuff can go here. :3
+    -->
+<body id="app"
+      v-on="
+          keydown: keydown,
+          keyup: keyup,
+          mousedown: mousedown,
+          mouseup: mouseup,
+          mousewheel: mousewheel,
+      ">
+
+    <div class="scroll-fix">
+
+        <div style="position:fixed; right:0; bottom:0;">
+            <p>path: \{{$route.path}}</p>
+            <p>params: \{{$route.params | json}}</p>
+        </div>
+
+        <div class="site__wrapper">
+            <section class="site__body">
+                {{{ body }}}
+            </section><!-- site__body -->
+        </div><!-- site__wrapper -->
+    </div><!-- scroll-fix -->
+
+    {{> includes }}
+
+    {{> footScripts }}
+</body>
+</html>

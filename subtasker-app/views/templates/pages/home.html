@@ -1,0 +1,18 @@
+<h1>Home</h1>
+
+<div v-show="!auth.isAuthenticated">
+    <form-login></form-login>
+    <p>- or -</p>
+    <form-registration></form-registration>
+</div>
+<div v-show="auth.isAuthenticated">
+    <a href="#" @click.prevent="auth.logout.call(auth)">Logout</a>
+</div>
+
+<p v-text="auth.isAuthenticated ? '1' : '0'">
+
+<div v-show="auth.isAuthenticated">
+    <p v-text="auth.plan"></p>
+
+    <form-cc></form-cc>
+</div>

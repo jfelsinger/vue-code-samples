@@ -1,0 +1,74 @@
+<head>
+    <title>{{ page.title }}</title>
+
+    <!-- General META -->
+    <meta charset="utf-8">
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+
+	<!-- Semantic META -->
+	<meta name="keywords" content="{{ page.keywords }}">
+    <meta name="description" content="{{ page.description }}">
+
+	<!-- Fav Icon -->
+	<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <script>
+        /*!
+        loadCSS: load a CSS file asynchronously.
+        [c]2014 @scottjehl, Filament Group, Inc.
+        Licensed MIT
+        */
+        function loadCSS( href, before, media, callback ){
+            "use strict";
+            var ss = window.document.createElement( "link" );
+            var ref = before || window.document.getElementsByTagName( "script" )[ 0 ];
+            var sheets = window.document.styleSheets;
+            ss.rel = "stylesheet"; ss.href = href; ss.media = "only x";
+            // DEPRECATED
+            if( callback ) { ss.onload = callback; }
+
+            ref.parentNode.insertBefore( ss, ref );
+            ss.onloadcssdefined = function( cb ){
+                var defined;
+                for( var i = 0; i < sheets.length; i++ ){
+                    if( sheets[ i ].href && sheets[ i ].href.indexOf( href.split('#').shift() ) > -1 ){
+                        defined = true;
+                    }
+                }
+                if( defined ){
+                    cb();
+                } else {
+                    setTimeout(function() { ss.onloadcssdefined( cb ); });
+                }
+            };
+            ss.onloadcssdefined(function() { ss.media = media || "all"; });
+            return ss;
+        }
+
+        {{#each page.styles }}
+        loadCSS('/assets/css/{{this}}');
+        {{/each}}
+        loadCSS('/assets/css/main.css');
+
+    </script>
+    <noscript>
+        {{#each page.styles }}
+        <link href="/assets/css/{{this}}" rel="stylesheet">
+        {{/each}}
+        <link href="/assets/css/main.css" rel="stylesheet">
+    </noscript>
+
+    {{#if inlineStyles }}
+    <!-- Inline styles for faster page render -->
+    <style>{{{ inlineStyles }}}</style>
+    {{/if}}
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!--[if lt IE 9]>
+         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>

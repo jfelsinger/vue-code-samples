@@ -1,0 +1,60 @@
+<template id="vue-tmpl__pagination">
+
+
+
+<section class="pager" data-ui-component="pager">
+    <div class="container">
+        {{!--
+        <div class="pager__per-selector width-inherit float-left  mr++"  v-if="type!='simple'">
+            <select class="pager__selector" v-model="per">
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="12">12</option>
+                <option value="24">24</option>
+                <option value="48">48</option>
+            </select>
+        </div>
+        --}}
+
+        <ul class="pager__pages-list  list--plain  list--one-line  float-right" v-if="maxPages > 1">
+            <li v-if="page > 1">
+                <a class="icon--circle-left" href="javascript:void(0);" @click.stop.prevent="setPage(-1)"></a>
+            </li>
+            <li :class="{active: page === 1}">
+                <a href="javascript:void(0);" @click.stop.prevent="page = 1">1</a>
+            </li>
+            <li v-if="page > 5">...</li>
+            <li v-if="page > 4">
+                <a href="javascript:void(0);" v-text="page - 3" @click.stop.prevent="setPage(-3)"></a>
+            </li>
+            <li v-if="page > 3">
+                <a href="javascript:void(0);" v-text="page - 2" @click.stop.prevent="setPage(-2)"></a>
+            </li>
+            <li v-if="page > 2">
+                <a href="javascript:void(0);" v-text="page - 1" @click.stop.prevent="setPage(-1)"></a>
+            </li>
+            <li v-if="page > 1 && page < maxPages" class="active">
+                <a href="javascript:void(0);" v-text="page"></a>
+            </li>
+            <li v-if="page < (maxPages - 1)">
+                <a href="javascript:void(0);" v-text="page + 1" @click.stop.prevent="setPage(1)"></a>
+            </li>
+            <li v-if="page < (maxPages - 2)">
+                <a href="javascript:void(0);" v-text="page + 2" @click.stop.prevent="setPage(2)"></a>
+            </li>
+            <li v-if="page < (maxPages - 3)">
+                <a href="javascript:void(0);" v-text="page + 3" @click.stop.prevent="setPage(3)"></a>
+            </li>
+            <li v-if="page < (maxPages - 4)">...</li>
+            <li v-if="maxPages > 1" :class="{active: page === maxPages}">
+                <a href="javascript:void(0);" @click.stop.prevent="page = maxPages">\{{ maxPages }}</a>
+            </li>
+            <li v-if="page < maxPages">
+                <a class="icon--circle-right" href="javascript:void(0);" @click.stop.prevent="setPage(1)"></a>
+            </li>
+        <ul><!-- pager__pages-list -->
+    </div><!-- wrapper -->
+</section><!-- pager -->
+
+
+</template>

@@ -1,0 +1,24 @@
+<form @submit.prevent="submit">
+    <input name="cc-number" type="tel" inputmode="numeric"
+           placeholder="Card Number"
+           autocomplete="cc-number"
+           autocorrect="no" spellcheck="no" autocapitalize="no"
+           v-model="form.ccNumber">
+    <br>
+    <input name="cc-exp" type="tel" inputmode="numeric"
+           placeholder="MM / YY"
+           autocomplete="cc-exp"
+           autocorrect="no" spellcheck="no" autocapitalize="no"
+           v-model="form.ccExp">
+    <br>
+    <input name="cc-cvc" type="tel" inputmode="numeric"
+           placeholder="CVC"
+           maxlength="4" autocomplete="off"
+           autocorrect="no" spellcheck="no" autocapitalize="no"
+           v-model="form.ccCVC">
+    <br>
+
+    <div>
+        <button>Submit</button>
+    </div>
+</form>

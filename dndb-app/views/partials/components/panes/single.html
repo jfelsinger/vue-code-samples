@@ -1,0 +1,26 @@
+<template id="vue-tmpl__pane-single">
+<div :class="[entry.category_slug]">
+
+
+<div class="entry-list__header">
+    <h3 class="entry-list__header__name">\{{ entry.name }}</h3>
+    <small class="entry-list__header__category">\{{ entry.category }}</small>
+
+    <p class="entry-list__header__blurb">
+        \{{ entry.body_str }}
+    </p>
+</div><!-- entry-list__header -->
+
+<div class="entry-list__details  open">
+    <div class="entry-list__details__container">
+
+        <div class="entry-list__details__html"
+             v-html="entry.body_html">
+        </div><!-- entry-list__details__html -->
+
+    </div><!-- entry-list__details__container -->
+</div><!-- entry-list__details -->
+
+
+</div>
+</template>
