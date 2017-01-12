@@ -11,9 +11,9 @@ because they're personal projects which I only put time into sporadically.
 This is probably the most interesting, though the version of vue used is
 slightly older than the current. It contains the front-end implementation of
 Stripe support for a Node.js app that I've been working on. Most of the heavy
-lifting is left to the server, which is communicated with a separate module for
-this project that isn't included (ie. the `subtasker-client` include in
-`scripts/lib/rest-client.js`).
+lifting is left to the server, which is communicated with through a separate
+module for this project that isn't included (ie. the `subtasker-client` include
+in `scripts/lib/rest-client.js`).
 
 ## dndb-app
 
