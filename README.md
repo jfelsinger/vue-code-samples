@@ -18,9 +18,9 @@ this project that isn't included (ie. the `subtasker-client` include in
 ## dndb-app
 
 Of the two samples, this is the only one that is live. It's a very basic library
-that I threw together one weekend for some of my friends who are into DND (yes,
-that DND). Very simple, pagination and search. Not a production app in any way,
-and currently very quirky because of some corners cut in the initial
+that I threw together one weekend for some of my friends who are into DnD (yes,
+that DnD, very nerdy). Very simple, pagination and search. Not a production app
+in any way, and currently very quirky because of some corners cut in the initial
 implementation.
 
 If you'd like to see the live site: http://dndb.joelfredrick.com/
