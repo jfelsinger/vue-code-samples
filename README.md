@@ -2,7 +2,7 @@
 
 Included are the VUE related components (scripts and templates) for three
 separate projects I've been working on. Each is in a different state of WIP
-because they're personal projects which I can only put time into sporadically.
+because they're personal projects which I only put time into sporadically.
 
 
 
