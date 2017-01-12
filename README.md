@@ -1,8 +1,8 @@
 # Overview
 
-Included are the VUE related components (scripts and templates) for three
-separate projects I've been working on. Each is in a different state of WIP
-because they're personal projects which I only put time into sporadically.
+Included are the VUE related components (scripts and templates) for some
+separate projects I've been working on. Each is in a different state of in
+progress, and not quite to production standards yet.
 
 
 
